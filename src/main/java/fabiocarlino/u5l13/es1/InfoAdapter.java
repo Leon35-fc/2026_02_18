@@ -17,7 +17,7 @@ public class InfoAdapter implements DataSource {
     public int getEta() {
         LocalDate birthday = info.getDataDiNascita().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 //        Period age = Period.between(info.getDataDiNascita().toInstant(), LocalDate.now());
-        LocalDate age = birthday - LocalDate.now();
-        return age.getYear();
+        LocalDate age = LocalDate.from(birthday);
+        return (int) age.getYear();
     }
 }
